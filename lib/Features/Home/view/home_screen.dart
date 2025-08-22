@@ -34,13 +34,13 @@ class HomeScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 ItemMenu(
-                  backgroundColor: Color.fromARGB(255, 74, 85, 48),
+                  backgroundColor: CustomColor.greebColor,
                   text: 'Cafe',
                   image: 'assets/images/cafe.png',
                 ),
-                SizedBox(width: 10),
+                const SizedBox(width: 10),
                 ItemMenu(
-                  backgroundColor: const Color.fromARGB(255, 116, 30, 30),
+                  backgroundColor: CustomColor.redColor,
                   text: 'Restaurant',
                   image: 'assets/images/restaurant.png',
                 ),

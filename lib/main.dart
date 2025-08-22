@@ -1,4 +1,5 @@
 import 'package:ar_menu_app/Features/Home/view/home_screen.dart';
+import 'package:ar_menu_app/Features/RestaurantMenu/view/resaurant_menu_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(),
-      home: const HomeScreen(),
+      home: const RestaurantMenuScreen(),
     );
   }
 }
