@@ -1,4 +1,6 @@
 import 'package:ar_menu_app/Constants/color_constants.dart';
+import 'package:ar_menu_app/Features/MenuItem/view/cafe_menu_screen.dart';
+import 'package:ar_menu_app/Features/MenuItem/view/restaurant_menu_screen.dart';
 import 'package:ar_menu_app/Widgets/item_menu.dart';
 import 'package:flutter/material.dart';
 
@@ -34,12 +36,20 @@ class HomeScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 ItemMenu(
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => CafeMenuScreen()));
+                  },
                   backgroundColor: CustomColor.greebColor,
                   text: 'Cafe',
                   image: 'assets/images/cafe.png',
                 ),
                 const SizedBox(width: 10),
                 ItemMenu(
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => RestaurantMenuScreen()));
+                  },
                   backgroundColor: CustomColor.redColor,
                   text: 'Restaurant',
                   image: 'assets/images/restaurant.png',

@@ -4,8 +4,7 @@ import 'package:ar_menu_app/NetworkUtil/api_exception.dart';
 import 'package:dartz/dartz.dart';
 
 abstract class IMenuItemRepository {
-  Future<Either<String, List<MenuItem>>> getCafeMenu();
-  Future<Either<String, List<MenuItem>>> getRestaurantMenu();
+  Future<Either<String, List<MenuItem>>> getMenu({required String type,required String category});
 }
 
 class MenuItemRepository extends IMenuItemRepository {
@@ -13,22 +12,15 @@ class MenuItemRepository extends IMenuItemRepository {
   MenuItemRepository(this.datasource);
 
   @override
-  Future<Either<String, List<MenuItem>>> getRestaurantMenu() async {
+  Future<Either<String, List<MenuItem>>> getMenu(
+      {required String type,required String category}) async {
     try {
-      var response = await datasource.getRestaurantMenu();
+      var response = await datasource.getMenu(type: type,category: category);
       return right(response);
     } on ApiException catch (ex) {
       return left(ex.message ?? 'There is no data');
     }
   }
 
-  @override
-  Future<Either<String, List<MenuItem>>> getCafeMenu() async {
-    try {
-      var response = await datasource.getCafeMenu();
-      return right(response);
-    } on ApiException catch (ex) {
-      return left(ex.message ?? 'There is no data');
-    }
-  }
+  
 }

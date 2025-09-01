@@ -13,11 +13,11 @@ class MenuItemBloc extends Bloc<MenuItemEvent, MenuItemState> {
   MenuItemBloc(this.menuItemRepository) : super(MenuItemInitialState()) {
     on<MenuItemGetInitializedData>((event, emit) async {
       emit(MenuItemLoadingState());
-      var menuItemCafeList = await menuItemRepository.getCafeMenu();
-      var menuItemRestaurantList = await menuItemRepository.getRestaurantMenu();
 
-      emit(MenuItemRequestSuccessState(
-          cafeMenu: menuItemCafeList, restaurantMenu: menuItemRestaurantList));
+      var menuItemRestaurantList = await menuItemRepository.getMenu(
+          type: event.type, category: event.category);
+
+      emit(MenuItemRequestSuccessState(getMenu: menuItemRestaurantList));
     });
   }
 }

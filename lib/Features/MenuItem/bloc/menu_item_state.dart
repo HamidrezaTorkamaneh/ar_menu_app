@@ -6,10 +6,9 @@ sealed class MenuItemState {}
 final class MenuItemInitialState extends MenuItemState {}
 
 class MenuItemRequestSuccessState extends MenuItemState {
-  Either<String, List<MenuItem>>? cafeMenu;
-  Either<String, List<MenuItem>>? restaurantMenu;
+  Either<String, List<MenuItem>>? getMenu;
 
-  MenuItemRequestSuccessState({this.cafeMenu, this.restaurantMenu});
+  MenuItemRequestSuccessState({this.getMenu});
 }
 
 class MenuItemLoadingState extends MenuItemState {}
