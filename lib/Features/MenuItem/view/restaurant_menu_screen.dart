@@ -19,8 +19,7 @@ class _RestaurantMenuScreenState extends State<RestaurantMenuScreen> {
     return BlocProvider(
       create: ((context) {
         MenuItemBloc menuItemBloc = MenuItemBloc(locator.get());
-        menuItemBloc.add(MenuItemGetInitializedData(
-            type: "", category: ""));
+        menuItemBloc.add(MenuItemGetInitializedData(type: "", category: ""));
         return menuItemBloc;
       }),
       child: ViewContainer(),
@@ -45,29 +44,31 @@ class ViewContainer extends StatelessWidget {
           length: 4,
           child: Scaffold(
             backgroundColor: CustomColor.backgroundColor,
+            appBar: AppBar(
+              toolbarHeight: 70,
+              title: Text(
+                'Restaurant Menu',
+                style: TextStyle(
+                  color: CustomColor.backgroundColor,
+                  fontSize: 25,
+                  fontFamily: 'Tir',
+                ),
+              ),
+              centerTitle: true,
+              backgroundColor: Color(0xff47281b),
+              leading: IconButton(
+                icon: Icon(Icons.arrow_back_ios,
+                    color: CustomColor.backgroundColor),
+                onPressed: () => Navigator.of(context).pop(),
+              ),
+            ),
             body: SafeArea(
               child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 50, horizontal: 20),
+                padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
                 child: CustomScrollView(
                   physics: BouncingScrollPhysics(
                       decelerationRate: ScrollDecelerationRate.fast),
                   slivers: [
-                    const SliverToBoxAdapter(
-                      child: Center(
-                        child: Padding(
-                          padding: EdgeInsets.only(top: 5, bottom: 15),
-                          child: Text(
-                            'Restaurant Menu',
-                            style: TextStyle(
-                              color: CustomColor.primaryTextColor,
-                              fontSize: 35,
-                              fontFamily: 'Tir',
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
                     SliverToBoxAdapter(
                       child: TabBar(
                         labelColor: CustomColor.primaryTextColor,

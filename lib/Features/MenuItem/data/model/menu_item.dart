@@ -3,6 +3,7 @@ import 'package:ar_menu_app/Constants/string_constants.dart';
 class MenuItem {
   String id;
   String name;
+  String description;
   String category;
   double price;
   double rate;
@@ -12,6 +13,7 @@ class MenuItem {
   MenuItem({
     required this.id,
     required this.name,
+    required this.description,
     required this.category,
     required this.price,
     required this.rate,
@@ -23,6 +25,7 @@ class MenuItem {
     return MenuItem(
       id: jsonObject['id'],
       name: jsonObject['name'],
+      description: jsonObject['description'],
       category: jsonObject['category'],
       price: jsonObject['price'] != null
           ? (jsonObject['price'] as num).toDouble()

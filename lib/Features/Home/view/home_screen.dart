@@ -3,12 +3,19 @@ import 'package:ar_menu_app/Features/MenuItem/view/cafe_menu_screen.dart';
 import 'package:ar_menu_app/Features/MenuItem/view/restaurant_menu_screen.dart';
 import 'package:ar_menu_app/Widgets/item_menu.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+      statusBarColor: CustomColor.backgroundColor,
+      statusBarIconBrightness: Brightness.dark,
+      systemNavigationBarColor: CustomColor.backgroundColor,
+      systemNavigationBarIconBrightness: Brightness.dark,
+    ));
     return Scaffold(
       backgroundColor: CustomColor.backgroundColor,
       body: Center(
